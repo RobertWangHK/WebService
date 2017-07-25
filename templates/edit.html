@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>IERG 4080</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+
+});
+</script>
+<style>
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.userlink > a > img{
+    width: auto;
+    height : auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/refresh">Refresh</a>
+                    </li>
+                    <li>
+                        <a href="profile.html">Me</a>
+                    </li>
+		    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+                </ul>
+                <div class="col-sm-6 col-md-6 pull-right">
+                    <form class="navbar-form" role="search" action="/search" method="post">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search" name="search_term" id="search_term">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header" id= "username">{{ name }}</h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Project One -->
+	{% for i in range (list|length) %}
+        <div class="row">
+            <div class="col-md-2 userlink">
+		<h4>{{name}}</h4>
+                <a href="#">
+                    <img id="test" src="/image/user/{{name}}/profile-image/default_profile.jpg" class="img-rounded" alt="Cinque Terre" style="padding-top: 5px">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <a href="#">
+                    <img class="img-responsive" src="{{list[i][1]}}" alt="">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <h3>{{list[i][2]}}</h3>
+                <p>{{list[i][3]}}</p>
+		<p>{{list[i][4]}}</p>
+	    </div>
+        </div>
+	<hr>
+	{% endfor %}
+        <!-- /.row -->
+
+        <hr>
+    </div>
+</body>
+
+</html>
